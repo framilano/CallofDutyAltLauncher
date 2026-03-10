@@ -37,7 +37,7 @@ You can change this folder structure editing the `config.json` file.
 
    `PROTON_NO_ESYNC=1 PROTON_NO_FSYNC=1 %command%`
 
-6. With NTSYNC on kernel >= 6.14 and `Proton-GE` integrating it by default there's no need for these launch arguments anymore. You still can't use NTSYNC on Steam Deck until Valve updates the kernel.
+6. With NTSYNC on kernel >= 6.14 and `Proton-GE` integrating it by default there's no need for these launch arguments anymore. **With Steam Deck update 3.7.20 now NTSYNC is available!**.
 7. Start the program, you need to first boot the classic plutonium launcher (so it can download required files inside the proton prefix). Close everything and reboot the launcher, you're done!
 
 ## Extra
