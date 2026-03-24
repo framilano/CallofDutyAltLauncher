@@ -56,7 +56,7 @@ public partial class MainWindow : Window
         }
 
         exe = bootstrapperExecutable;
-        if (gameName == "online") exe = AppConfigManager.Current.PlutoniumExecutablePath;
+        if (gameName == "plutonium") exe = AppConfigManager.Current.PlutoniumExecutablePath;
         else if (gameName.Contains("t4")) gamePath = AppConfigManager.Current.T4FolderPath;
         else if (gameName.Contains("t5")) gamePath = AppConfigManager.Current.T5FolderPath;
         else if (gameName.Contains("t6")) gamePath = AppConfigManager.Current.T6FolderPath;
@@ -99,7 +99,7 @@ public partial class MainWindow : Window
 
     private bool ValidateButtonInput(string gameName, string gamePath, string exe)
     {
-        if (gameName != "online" && string.IsNullOrEmpty(gamePath))
+        if (gameName != "plutonium" && string.IsNullOrEmpty(gamePath))
         {
             ShowMessage("⚠️ Invalid gamepath selected", "⚠️\nCheck your game paths in settings", 
                 0, "Ok"

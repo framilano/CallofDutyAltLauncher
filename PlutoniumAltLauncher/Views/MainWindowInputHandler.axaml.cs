@@ -14,8 +14,8 @@ public partial class MainWindow
     private int[] CurrentElementSelected { get; set; } = [0, 0];
     private readonly Dictionary<string, string> _elementsDict = new Dictionary<string, string>
     {
-        ["0;0"] = "OnlineBtn",
-        ["1;0"] = "OnlineBtn",
+        ["0;0"] = "PlutoniumBtn",
+        ["1;0"] = "Iw4XBtn",
         ["0;1"] = "T4SpBtn",
         ["1;1"] = "T4MpBtn",
         ["0;2"] = "T5SpBtn",
@@ -24,6 +24,8 @@ public partial class MainWindow
         ["1;3"] = "T6MpBtn",
         ["0;4"] = "Iw5SpBtn",
         ["1;4"] = "Iw5MpBtn",
+        ["0;5"] = "Iw4SpBtn",
+        ["1;5"] = "Iw4MpBtn",
     };
     
     private void AddHighlight(Button element)
@@ -81,11 +83,13 @@ public partial class MainWindow
         //Pressed East
         if (newElementSelected[0] == -1 && newElementSelected[1] == -2) Dispatcher.UIThread.Post(Close);
         
+        //ContentScrollViewer.LineDown();
+        
         //Pressed DPAD or Key directions
         if (newElementSelected[0] < 0 ||
             newElementSelected[0] > 1 ||
             newElementSelected[1] < 0 ||
-            newElementSelected[1] > 4)
+            newElementSelected[1] > 5)
         {
             Log.Information("Value outside of bounds, ignoring");
             return;
@@ -98,6 +102,17 @@ public partial class MainWindow
             RemoveHighlight(currentHighlightedButton);
 
             CurrentElementSelected = newElementSelected;
+            
+            //Scroll Down
+            if (input == 1) ContentScrollViewer.Offset = ContentScrollViewer.Offset.WithY(
+                ContentScrollViewer.Offset.Y + ContentScrollViewer.Viewport.Height * 0.2
+            );
+            
+            //Scroll Up
+            if (input == 0) ContentScrollViewer.Offset = ContentScrollViewer.Offset.WithY(
+                ContentScrollViewer.Offset.Y - ContentScrollViewer.Viewport.Height * 0.2
+            );
+
 
             var buttonToHighlight =
                 this.FindControl<Button>(_elementsDict[$"{CurrentElementSelected[0]};{CurrentElementSelected[1]}"])!;
