@@ -1,0 +1,114 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="800"
+        x:Class="CallofDutyAltLauncher.Views.MainWindow"
+        Icon="/Assets/icon.png"
+        KeyDown="OnKeyDown"
+        Title="CallofDutyAltLauncher">
+    
+    <Window.Styles>
+        <StyleInclude Source="/Styles/MainWindowStyle.axaml"/>
+    </Window.Styles>
+    
+    <ScrollViewer Name="ContentScrollViewer" VerticalScrollBarVisibility="Auto">
+        <StackPanel Spacing="12">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    
+                    <Button HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Name="PlutoniumBtn"
+                            Click="LaunchGame_OnClick"
+                            PointerEntered="OnPointerEntered"
+                            PointerExited="OnPointerExited">
+                        <Image Source="avares://CallofDutyAltLauncher/Assets/images/plutonium.png" Stretch="UniformToFill" />
+                    </Button>
+                    <Button HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Name="Iw4XBtn" Opacity="0.2"
+                            Click="LaunchGame_OnClick"
+                            PointerEntered="OnPointerEntered"
+                            PointerExited="OnPointerExited">
+                        <Image Source="avares://CallofDutyAltLauncher/Assets/images/iw4x.png" Stretch="UniformToFill" />
+                    </Button>
+
+                    <Button HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" Name="T4SpBtn" Opacity="0.2"
+                            Click="LaunchGame_OnClick"
+                            PointerEntered="OnPointerEntered"
+                            PointerExited="OnPointerExited">
+                        <Image Source="avares://CallofDutyAltLauncher/Assets/images/t4sp.png" Stretch="UniformToFill" />
+                    </Button>
+                    <Button HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Name="T4MpBtn" Opacity="0.2"
+                            Click="LaunchGame_OnClick"
+                            PointerEntered="OnPointerEntered"
+                            PointerExited="OnPointerExited">
+                        <Image Source="avares://CallofDutyAltLauncher/Assets/images/t4mp.png" Stretch="UniformToFill" />
+                    </Button>
+                    
+                    <Button HorizontalAlignment="Center" Grid.Row="2" Grid.Column="0" Name="T5SpBtn" Opacity="0.2"
+                            Click="LaunchGame_OnClick"
+                            PointerEntered="OnPointerEntered"
+                            PointerExited="OnPointerExited">
+                        <Image Source="avares://CallofDutyAltLauncher/Assets/images/t5sp.png" Stretch="UniformToFill" />
+                    </Button>
+                    <Button HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" Name="T5MpBtn" Opacity="0.2"
+                            Click="LaunchGame_OnClick"
+                            PointerEntered="OnPointerEntered"
+                            PointerExited="OnPointerExited">
+                        <Image Source="avares://CallofDutyAltLauncher/Assets/images/t5mp.png" Stretch="UniformToFill" />
+                    </Button>
+                    
+                    <Button HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Name="T6ZmBtn" Opacity="0.2"
+                            Click="LaunchGame_OnClick"
+                            PointerEntered="OnPointerEntered"
+                            PointerExited="OnPointerExited">
+                        <Image Source="avares://CallofDutyAltLauncher/Assets/images/t6zm.png" Stretch="UniformToFill" />
+                    </Button>
+                    <Button HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1" Name="T6MpBtn" Opacity="0.2"
+                            Click="LaunchGame_OnClick"
+                            PointerEntered="OnPointerEntered"
+                            PointerExited="OnPointerExited">
+                        <Image Source="avares://CallofDutyAltLauncher/Assets/images/t6mp.png" Stretch="UniformToFill" />
+                    </Button>
+                    
+                    <Button HorizontalAlignment="Center" Grid.Row="4" Grid.Column="0" Name="Iw4MpBtn" Opacity="0.2"
+                            Click="LaunchGame_OnClick"
+                            PointerEntered="OnPointerEntered"
+                            PointerExited="OnPointerExited">
+                        <Image Source="avares://CallofDutyAltLauncher/Assets/images/iw4mp.png" Stretch="UniformToFill" />
+                    </Button>
+                    <Button HorizontalAlignment="Center" Grid.Row="4" Grid.Column="1" Name="Iw5MpBtn" Opacity="0.2"
+                            Click="LaunchGame_OnClick"
+                            PointerEntered="OnPointerEntered"
+                            PointerExited="OnPointerExited">
+                        <Image Source="avares://CallofDutyAltLauncher/Assets/images/iw5mp.png" Stretch="UniformToFill" />
+                    </Button>
+                    
+                    <Canvas Grid.Row="0" Grid.Column="1">
+                        <Button
+                                Canvas.Right="20"
+                                Canvas.Top="20"
+                                Click="OpenSettings_OnClick">
+                        <Image Width="40" Height="40" Source="avares://CallofDutyAltLauncher/Assets/images/tool.png" Stretch="UniformToFill" />
+                        </Button>
+                    </Canvas>
+                    <!-- <TextBlock HorizontalAlignment="Center" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Name="ButtonViewer">Waiting for presses</TextBlock> -->
+                    <!--<Button HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="CloseProgram_OnClick">Close</Button>-->
+                </Grid>
+        </StackPanel>
+    </ScrollViewer>
+
+    
+
+</Window>
