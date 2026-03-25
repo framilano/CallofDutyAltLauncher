@@ -8,7 +8,7 @@ The main objective is giving a shortcut to play offline Call of Duty Plutonium-s
 
 **Oh btw, I'm not affiliated with the Plutonium/IW4x team in any capacity, show some gratitude to the devs!**
 
-<img width="2559" height="1439" alt="immagine" src="https://github.com/user-attachments/assets/02d00751-f51d-4982-bcec-ba0b18f495fe" />
+<img width="2551" height="1438" alt="immagine" src="https://github.com/user-attachments/assets/a290efd9-6580-48c8-921d-5146cdb94bff" />
 
 ## Requirements
 - Call of Duty game files
