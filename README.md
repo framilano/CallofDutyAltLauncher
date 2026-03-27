@@ -1,12 +1,12 @@
 # CallofDutyAltLauncher 
 #### *Call of Duty Alternative Launcher*
 
-A [Call of Duty](https://plutonium.pw/) launcher that allows you to play while being offline on unofficial launchers like Plutonium and IW4x, mainly developed with Steam Deck in mind and powered by [Avalonia](https://avaloniaui.net/).
+A [Call of Duty](https://plutonium.pw/) launcher that allows you to play while being offline (and online too) on unofficial launchers like Plutonium and IW4x, mainly developed with Steam Deck in mind and powered by [Avalonia](https://avaloniaui.net/).
 It has controller, touchscreen, mouse/kb support and works on both Linux (through Wine/Proton) and Windows.
 
-The main objective is giving a shortcut to play offline Call of Duty Plutonium-supported titles, I later added IW4x support too.
+The main objective is giving a shortcut to play offline Call of Duty old title on Steam Deck, with an easier to use HUD.
 
-**Oh btw, I'm not affiliated with the Plutonium/IW4x team in any capacity, show some gratitude to the devs!**
+**Oh btw, I'm not affiliated with the Plutonium/IW4x/AlterWare team in any capacity, show some gratitude to the devs!**
 
 <img width="2551" height="1438" alt="immagine" src="https://github.com/user-attachments/assets/a290efd9-6580-48c8-921d-5146cdb94bff" />
 
@@ -14,10 +14,11 @@ The main objective is giving a shortcut to play offline Call of Duty Plutonium-s
 - Call of Duty game files
 - [Plutonium](https://cdn.plutonium.pw/updater/plutonium.exe)
 - [IW4x](https://iw4x.io/)
+- [AlterWare-T7x](https://alterware.dev/)
 
 ## How to install
 1. Download and extract the `CallofDutyAltLauncher.zip` from [Releases](https://github.com/framilano/CallofDutyAltLauncher/releases)
-2. Here's my folder structure in `/home/deck/NoLauncherGames/Plutonium`:
+2. Here's my folders structure in, you can copy it if you want:
 
 ```
 ├── CallofDutyAltLauncher
@@ -41,20 +42,23 @@ You can change this folder structure editing the `config.json` file.
    `PROTON_NO_ESYNC=1 PROTON_NO_FSYNC=1 %command%`
 
 6. With NTSYNC on kernel >= 6.14 and `Proton-GE` integrating it by default there's no need for these launch arguments anymore. **With Steam Deck update 3.7.20 now NTSYNC is available!**.
-7. Start the program, you need to first boot the classic plutonium launcher (so it can download required files inside the proton prefix). Close everything and reboot the launcher, you're done!
+7. Start the program, we need to fill our Proton prefix with the necessary files first:
+    * 7a. If you want to play Plutonium offline titles, you must launch Plutonium Online at least once
+    * 7b. If you want to play IW4x MP offline, you must launch IW4x online at least once
+8. You're done, if you've done everything correctly now all games will be available offline!
 
 ## Extra
 - You need to install through `Protontricks` the `xact` audio library to have all Sound FXs on BO1 and WAW
 - You can edit `config.json` from the program itself when clicking/touching on the settings icon on the top right of the screen. You'll probably need a mouse or trackpads for better navigation in settings.
 - It's my first dotnet project, have mercy
-- Why a Windows launcher and not native Linux? Because I wanted to simplify the whole configuration process, add CallofDutyAltLauncher.exe as non steam game, that's it, no looking for Proton versions, no different prefix for Plutonium itself. Just a single prefix with everything related to Plutonium.
+- Why a Windows launcher and not native Linux? Because I wanted to simplify the whole configuration process, add CallofDutyAltLauncher.exe as non steam game, that's it, no looking for Proton versions, no different prefix for Plutonium or IW4x itself. Just a single prefix with everything related to this custom launcher.
 
 ## Configuration
 
 There are some editable fields in `config.json`:
 - `PlutoniumExecutablePath` set your plutonium.exe path
 - `IngameUsername` set your ingame username while playing offline
-- `T4/5/6/IW5/IW4 FolderPath` set your game files path
+- `T4/5/6/7/IW5/IW4 FolderPath` set your game files path
 - `CloseAtLaunch` exit the launcher when booting the game, or leave it in background so you can open it back later
 - `DisableBackgroundMusic` disable the background music immediately
 
