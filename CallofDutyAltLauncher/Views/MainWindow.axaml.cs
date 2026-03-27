@@ -134,10 +134,19 @@ public partial class MainWindow : Window
 
         var exeName = exe.Contains('\\') ? exe.Split('\\').Last() : exe.Split('/').Last();
         
+        //No game cannot have an exe
+        if (string.IsNullOrEmpty(exeName))
+        {
+            ShowMessage("⚠️ No game executable found ⚠️\n", "⚠️ No game executable found ⚠️\nCheck your game paths in settings", 
+                0, "Ok"
+            );
+            return false;
+        }
+        
         //Only online Plutonium can have an empty game path
         if (gameName != "plutonium" && string.IsNullOrEmpty(gamePath))
         {
-            ShowMessage("⚠️ Invalid gamepath selected", "⚠️\nCheck your game paths in settings", 
+            ShowMessage("⚠️ Invalid gamepath selected ⚠️\n", "⚠️ Invalid gamepath selected ⚠️\nCheck your game paths in settings", 
                 0, "Ok"
             );
             return false;
@@ -158,7 +167,7 @@ public partial class MainWindow : Window
                case "plutonium.exe":
                {
                    title = "⚠️ I can't find \"plutonium.exe\" ⚠️\n";
-                   message = "Check your Plutonium path in settings";
+                   message = "⚠️ I can't find \"plutonium.exe\" ⚠️\nCheck your Plutonium path in settings";
                    break;
                }
                case "iw4x.exe":
