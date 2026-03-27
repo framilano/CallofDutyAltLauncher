@@ -57,7 +57,7 @@ You can change this folder structure editing the `config.json` file.
 There are some editable fields in `config.json`:
 - `PlutoniumExecutablePath` set your plutonium.exe path
 - `IngameUsername` set your ingame username while playing offline
-- `T4/5/6/7/IW5/IW4 FolderPath` set your game files path
+- `T4/5/6/IW5/IW4 FolderPath` set your game files path
 - `CloseAtLaunch` exit the launcher when booting the game, or leave it in background so you can open it back later
 - `DisableBackgroundMusic` disable the background music immediately
 
