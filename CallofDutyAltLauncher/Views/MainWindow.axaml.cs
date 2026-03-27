@@ -43,40 +43,59 @@ public partial class MainWindow : Window
         var gameName = btn.Name!.ToLower().Replace("btn", "");
         
         var user = Environment.UserName;
-        var plutoniumAppDataPath = $@"C:\Users\{user}\AppData\Local\Plutonium";
-        var plutoniumBootstraperExecutable = $@"{plutoniumAppDataPath}\bin\plutonium-bootstrapper-win32.exe";
-        var workingDir = plutoniumAppDataPath;
+        var workingDir = $@"C:\Users\{user}\AppData\Local\Plutonium";
         var arguments = "";
         var exe = "";
         var gamePath = "";
         
         //Creating AppData dir if not present
-        if (!Directory.Exists(plutoniumAppDataPath))
+        if (!Directory.Exists(workingDir))
         {
-            Directory.CreateDirectory(plutoniumAppDataPath);
-            Log.Information("Created directory {PlutoniumAppDataPath}", plutoniumAppDataPath);
+            Directory.CreateDirectory(workingDir);
+            Log.Information("Created directory {WorkingDir}", workingDir);
         }
 
-        exe = plutoniumBootstraperExecutable;
-        if (gameName == "plutonium") exe = AppConfigManager.Current.PlutoniumExecutablePath;
-        else if (gameName.Contains("t4")) gamePath = AppConfigManager.Current.T4FolderPath;
-        else if (gameName.Contains("t5")) gamePath = AppConfigManager.Current.T5FolderPath;
-        else if (gameName.Contains("t6")) gamePath = AppConfigManager.Current.T6FolderPath;
-        else if (gameName.Contains("iw5")) gamePath = AppConfigManager.Current.IW5FolderPath;
+        if (gameName == "plutonium")
+        {
+            exe = AppConfigManager.Current.PlutoniumExecutablePath;
+        }
+        else if (gameName.Contains("t4"))
+        {
+            exe = $@"{workingDir}\bin\plutonium-bootstrapper-win32.exe";
+            gamePath = AppConfigManager.Current.T4FolderPath;
+            arguments = $"{gameName} {gamePath} -lan +name {AppConfigManager.Current.IngameUsername}";
+        }
+        else if (gameName.Contains("t5"))
+        {
+            exe = $@"{workingDir}\bin\plutonium-bootstrapper-win32.exe";
+            gamePath = AppConfigManager.Current.T5FolderPath;
+            arguments = $"{gameName} {gamePath} -lan +name {AppConfigManager.Current.IngameUsername}";
+        }
+        else if (gameName.Contains("t6"))
+        {
+            exe = $@"{workingDir}\bin\plutonium-bootstrapper-win32.exe";
+            gamePath = AppConfigManager.Current.T6FolderPath;
+            arguments = $"{gameName} {gamePath} -lan +name {AppConfigManager.Current.IngameUsername}";
+        }
+        else if (gameName.Contains("iw5"))
+        {
+            exe = $@"{workingDir}\bin\plutonium-bootstrapper-win32.exe";
+            gamePath = AppConfigManager.Current.IW5FolderPath;
+            arguments = $"{gameName} {gamePath} -lan +name {AppConfigManager.Current.IngameUsername}";
+        }
         else if (gameName == "iw4x")
         {
-            gamePath = AppConfigManager.Current.IW4FolderPath;
             workingDir = AppConfigManager.Current.IW4FolderPath;
             exe = workingDir + "iw4x-launcher.exe";
+            gamePath = AppConfigManager.Current.IW4FolderPath;
+            arguments = $"--path {gamePath} +name {AppConfigManager.Current.IngameUsername}";
         }
         else if (gameName == "iw4mp")
         {
-            gamePath = AppConfigManager.Current.IW4FolderPath; 
             workingDir = AppConfigManager.Current.IW4FolderPath;
             exe = workingDir + "iw4x.exe";
+            gamePath = AppConfigManager.Current.IW4FolderPath; 
         }
-
-        if (!string.IsNullOrEmpty(gamePath)) arguments = $"{gameName} {gamePath} -lan +name {AppConfigManager.Current.IngameUsername}"; 
         
         Log.Information("Executable {Executable}", exe);
         Log.Information("Arguments {Arguments}", arguments);
