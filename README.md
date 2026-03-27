@@ -14,7 +14,6 @@ The main objective is giving a shortcut to play offline Call of Duty old title o
 - Call of Duty game files
 - [Plutonium](https://cdn.plutonium.pw/updater/plutonium.exe)
 - [IW4x](https://iw4x.io/)
-- [AlterWare-T7x](https://alterware.dev/)
 
 ## How to install
 1. Download and extract the `CallofDutyAltLauncher.zip` from [Releases](https://github.com/framilano/CallofDutyAltLauncher/releases)
@@ -77,7 +76,7 @@ robocopy CallofDutyAltLauncher/Native/libvlc CallofDutyAltLauncher/bin/Release/n
 - [X] Option to close Launcher automatically when launching Plutonium
 - [X] Change music (and loop it) when changing game in main menu
 - [X] Check if player started Plutonium at least once
-- [X] Add support for other clients (like IW4x and T7x)
+- [X] Add support for other clients (like IW4x)
 - [ ] Replace that horrible settings icon
 - [ ] Better UI in settings, controller navigation?
 
