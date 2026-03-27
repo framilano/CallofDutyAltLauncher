@@ -7,7 +7,7 @@ namespace CallofDutyAltLauncher;
 
 public class BackgroundMusic
 {
-    private string? SongToPlay { get; set; } = "online.mp3";
+    private string? SongToPlay { get; set; } = "plutonium.mp3";
 
     private MediaPlayer? _player;
     
@@ -35,7 +35,7 @@ public class BackgroundMusic
 
             //Wait half a second before starting, we just started the program
             //and maybe a mouse cursor is being placed on a different position than top center.
-            //So we don't get this horrible effect at launch: start online.mp3, immediately stops, start another
+            //So we don't get this horrible effect at launch: start plutonium.mp3, immediately stops, start another
             await Task.Delay(500);
             
             while (true)
