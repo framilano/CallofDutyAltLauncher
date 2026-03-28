@@ -6,6 +6,8 @@ It has controller, touchscreen, mouse/kb support and works on both Linux (throug
 
 The main objective is giving a shortcut to play offline Call of Duty old title on Steam Deck, with an easier to use HUD.
 
+I'd love to support CoD2x and CoD4x too, but they don't support controllers currently, so they're useless for this project.
+
 **Oh btw, I'm not affiliated with the Plutonium/IW4x/AlterWare team in any capacity, show some gratitude to the devs!**
 
 <img width="2551" height="1438" alt="immagine" src="https://github.com/user-attachments/assets/a290efd9-6580-48c8-921d-5146cdb94bff" />
