@@ -51,12 +51,15 @@ public class BackgroundMusic
         var path = Path.Combine(AppContext.BaseDirectory, "Assets/music", SongToPlay!);
         var playingSong = SongToPlay!;
         var media = new Media(_libVlc, path);
-        _player ??= new MediaPlayer(media); //if null do the assignment
+        if (_player == null)
+        {
+            _player = new MediaPlayer(media);
+            _player.Volume = 100;
+        }
         _player.Play(media);
 
         //_player.IsPlaying is too slow, using a variable to check if we're playing or not
         var realIsPlaying = true; 
-        _player.Volume = 100;
         
         //Console.WriteLine("Playing...");
         
