@@ -1,4 +1,4 @@
-# CallofDutyAltLauncher 
+# Call of Duty Alt Launcher 
 #### *Call of Duty Alt(ernative) Launcher*
 
 A [Call of Duty](https://plutonium.pw/) launcher that allows you to play while being offline (and online too) on unofficial launchers like Plutonium and IW4x, mainly developed with Steam Deck in mind and powered by [Avalonia](https://avaloniaui.net/).
