@@ -14,20 +14,9 @@
     </Window.Styles>
     
     <ScrollViewer Name="ContentScrollViewer" VerticalScrollBarVisibility="Auto">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
+        <Grid
+            ColumnDefinitions="*, *"
+            RowDefinitions="*, *, *, *, *">
             
             <Button HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Name="PlutoniumBtn"
                     Click="LaunchGame_OnClick"
