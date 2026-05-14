@@ -54,6 +54,8 @@ public partial class MainWindow : Window
             Directory.CreateDirectory(workingDir);
             Log.Information("Created directory {WorkingDir}", workingDir);
         }
+        
+        workingDir = RemoveTrailingSlash(workingDir);
 
         if (gameName == "plutonium")
         {
@@ -62,45 +64,47 @@ public partial class MainWindow : Window
         else if (gameName.Contains("t4"))
         {
             exe = $@"{workingDir}\bin\plutonium-bootstrapper-win32.exe";
-            gamePath = AppConfigManager.Current.T4FolderPath;
-            arguments = $"{gameName} {gamePath} -lan +name {AppConfigManager.Current.IngameUsername}";
+            gamePath = RemoveTrailingSlash(AppConfigManager.Current.T4FolderPath);
+            arguments = $"{gameName} \"{gamePath}\" -lan +name {AppConfigManager.Current.IngameUsername}";
         }
         else if (gameName.Contains("t5"))
         {
             exe = $@"{workingDir}\bin\plutonium-bootstrapper-win32.exe";
-            gamePath = AppConfigManager.Current.T5FolderPath;
-            arguments = $"{gameName} {gamePath} -lan +name {AppConfigManager.Current.IngameUsername}";
+            gamePath = RemoveTrailingSlash(AppConfigManager.Current.T5FolderPath);
+            arguments = $"{gameName} \"{gamePath}\" -lan +name {AppConfigManager.Current.IngameUsername}";
         }
         else if (gameName.Contains("t6"))
         {
             exe = $@"{workingDir}\bin\plutonium-bootstrapper-win32.exe";
-            gamePath = AppConfigManager.Current.T6FolderPath;
-            arguments = $"{gameName} {gamePath} -lan +name {AppConfigManager.Current.IngameUsername}";
+            gamePath = RemoveTrailingSlash(AppConfigManager.Current.T6FolderPath);
+            arguments = $"{gameName} \"{gamePath}\" -lan +name {AppConfigManager.Current.IngameUsername}";
         }
         else if (gameName.Contains("iw5"))
         {
             exe = $@"{workingDir}\bin\plutonium-bootstrapper-win32.exe";
-            gamePath = AppConfigManager.Current.IW5FolderPath;
-            arguments = $"{gameName} {gamePath} -lan +name {AppConfigManager.Current.IngameUsername}";
+            gamePath = RemoveTrailingSlash(AppConfigManager.Current.IW5FolderPath);
+            arguments = $"{gameName} \"{gamePath}\" -lan +name {AppConfigManager.Current.IngameUsername}";
         }
         else if (gameName == "iw4x")
         {
             workingDir = AppConfigManager.Current.IW4FolderPath;
             exe = workingDir + "iw4x-launcher.exe";
-            gamePath = AppConfigManager.Current.IW4FolderPath;
-            arguments = $"--path {gamePath} ";
+            gamePath = RemoveTrailingSlash(AppConfigManager.Current.IW4FolderPath);
+            arguments = $"--path \"{gamePath}\" ";
         }
         else if (gameName == "iw4mp")
         {
             workingDir = AppConfigManager.Current.IW4FolderPath;
             exe = workingDir + "iw4x.exe";
-            gamePath = AppConfigManager.Current.IW4FolderPath;
+            gamePath = RemoveTrailingSlash(AppConfigManager.Current.IW4FolderPath);
             arguments = $"+sv_securityLevel 0 +name {AppConfigManager.Current.IngameUsername}"; //SecurityLevel 0 allows same machine instance (for splitscreen programs)
         }
         
         Log.Information("Executable {Executable}", exe);
         Log.Information("Arguments {Arguments}", arguments);
         Log.Information("WorkingDir {WorkingDir}", workingDir);
+        
+        Log.Information("Command: {Exe} {Arguments}", exe, arguments);
 
         if (!ValidateButtonInput(gameName, gamePath, exe))
         {
@@ -193,6 +197,15 @@ public partial class MainWindow : Window
         
         Log.Debug("Validation completed");
         return true;
+    }
+
+    private static string RemoveTrailingSlash(string path)
+    {
+        if (path.Last() == '\\' || path.Last() == '/')
+        {
+            return path[..^1];
+        }
+        return path;
     }
     
     private void ShowMessage(string title, string message, int timeout, string? confirmButtonMessage)

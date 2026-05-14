@@ -14,6 +14,7 @@ sealed class Program
     {
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
+            .WriteTo.Console()
             .WriteTo.File(
                 "logs/app.log",
                 rollingInterval: RollingInterval.Day,
