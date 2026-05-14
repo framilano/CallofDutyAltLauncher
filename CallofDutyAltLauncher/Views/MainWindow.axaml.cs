@@ -2,7 +2,9 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Serilog;
@@ -29,7 +31,21 @@ public partial class MainWindow : Window
         SystemDecorations = SystemDecorations.None;
         WindowState = WindowState.FullScreen;
         WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        
+        //If default args are detected, launch the game directly, which launches the game with the "--default" argument and the game name as second argument
+        Loaded += (_, _) =>
+        {
+            var lifetime = (IClassicDesktopStyleApplicationLifetime)Application.Current!.ApplicationLifetime!;
+            var args = lifetime.Args;
+            if (args is null || args.Length < 2) return;
+            Log.Information("Args: {args}", string.Join(", ", args));
+            if (args[0] != "--default") return;
+            Log.Information("Default arg detected, launching {Args1} game", args[1].Trim().ToLower());
+            LaunchGame(args[1].Trim().ToLower());
+        };
     }
+    
+    
     
     private void OpenSettings_OnClick(object? sender, RoutedEventArgs e)
     {
@@ -42,6 +58,11 @@ public partial class MainWindow : Window
         var btn = (Button)sender!;
         var gameName = btn.Name!.ToLower().Replace("btn", "");
         
+        LaunchGame(gameName);
+    }
+
+    private void LaunchGame(string gameName)
+    {
         var user = Environment.UserName;
         var workingDir = $@"C:\Users\{user}\AppData\Local\Plutonium";
         var arguments = "";

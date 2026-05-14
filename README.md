@@ -53,7 +53,18 @@ You can change this folder structure editing the `config.json` file.
 - You can edit `config.json` from the program itself when clicking/touching on the settings icon on the top right of the screen. You'll probably need a mouse or trackpads for better navigation in settings.
 - It's my first dotnet project, have mercy
 - Why a Windows launcher and not native Linux? Because I wanted to simplify the whole configuration process, add CallofDutyAltLauncher.exe as non steam game, that's it, no looking for Proton versions, no different prefix for Plutonium or IW4x itself. Just a single prefix with everything related to this custom launcher.
-
+- You can open game by default passing `--default <game_name>` as launch argument, 
+for example use `--default t5sp` to open Black Ops 1 SP/ZM directly. Available values are:
+  - **plutonium** (online plutonium)
+  - **iw4x** (online iw4x)
+  - **t4sp** (offline waw singleplayer/zombies)
+  - **t4mp** (offline waw multiplayer)
+  - **t5sp** (offline bo1 singleplayer/zombies)
+  - **t5mp** (offline bo1 multiplayer)
+  - **t6zm** (offline bo2 zombies)
+  - **t6mp** (offline bo2 multiplayer)
+  - **iw5mp** (offline mw3 multiplayer)
+  - **iw4mp** (offline mw2 multiplayer)
 ## Configuration
 
 There are some editable fields in `config.json`:
