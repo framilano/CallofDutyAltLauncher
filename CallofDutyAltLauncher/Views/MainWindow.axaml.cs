@@ -199,9 +199,9 @@ public partial class MainWindow : Window
         return true;
     }
 
-    private static string RemoveTrailingSlash(string path)
+    private static string RemoveTrailingSlash(string? path)
     {
-        if (path.Last() == '\\' || path.Last() == '/')
+        if (!string.IsNullOrEmpty(path) && (path.Last() == '\\' || path.Last() == '/'))
         {
             return path[..^1];
         }

@@ -84,4 +84,3 @@ robocopy CallofDutyAltLauncher/Native/libvlc CallofDutyAltLauncher/bin/Release/n
 
 ## Issues
 - Blank screen on some windows randomly while using Gamescope, just moving the pointer fixes it, weird
-- Black screen with Mangohud enabled on Gamescope
