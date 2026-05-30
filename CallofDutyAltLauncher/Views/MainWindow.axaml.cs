@@ -28,7 +28,7 @@ public partial class MainWindow : Window
         //The logic with keys is custom, we don't this stuff
         KeyboardNavigation.SetTabNavigation(this, KeyboardNavigationMode.None); 
         
-        SystemDecorations = SystemDecorations.None;
+        WindowDecorations = WindowDecorations.None;
         WindowState = WindowState.FullScreen;
         WindowStartupLocation = WindowStartupLocation.CenterScreen;
         
@@ -155,7 +155,7 @@ public partial class MainWindow : Window
         ShowMessage("Wait please", "Launching...", 10, null);
     }
 
-    private bool ValidateButtonInput(string gameName, string gamePath, string exe)
+    private bool ValidateButtonInput(string gameName, string? gamePath, string exe)
     {
 
         var exeName = exe.Contains('\\') ? exe.Split('\\').Last() : exe.Split('/').Last();
@@ -220,7 +220,7 @@ public partial class MainWindow : Window
         return true;
     }
 
-    private static string RemoveTrailingSlash(string? path)
+    private static string? RemoveTrailingSlash(string? path)
     {
         if (!string.IsNullOrEmpty(path) && (path.Last() == '\\' || path.Last() == '/'))
         {

@@ -21,7 +21,7 @@ public partial class MainSettings : Window
         CloseAtLaunch.IsChecked = AppConfigManager.Current.CloseAtLaunch;
         DisableBackgroundMusic.IsChecked = AppConfigManager.Current.DisableBackgroundMusic;
         
-        SystemDecorations = SystemDecorations.None;
+        WindowDecorations = WindowDecorations.None;
         WindowState = WindowState.FullScreen;
         WindowStartupLocation = WindowStartupLocation.CenterScreen;    
     }

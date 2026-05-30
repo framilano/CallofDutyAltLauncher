@@ -31,7 +31,7 @@ public partial class MessageWindow : Window
         });
         
         
-        SystemDecorations = SystemDecorations.None;
+        WindowDecorations = WindowDecorations.None;
         WindowState = WindowState.FullScreen;
         WindowStartupLocation = WindowStartupLocation.CenterScreen;
     }
