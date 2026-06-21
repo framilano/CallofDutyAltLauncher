@@ -94,4 +94,4 @@ robocopy CallofDutyAltLauncher/Native/libvlc CallofDutyAltLauncher/bin/Release/n
 - [ ] Better UI in settings, controller navigation?
 
 ## Issues
-- Blank screen on some windows randomly while using Gamescope, just moving the pointer fixes it, weird
+- Blank screen on some windows randomly while using Gamescope, just moving the pointer or using the controller fixes it, weird
