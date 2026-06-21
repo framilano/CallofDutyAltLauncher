@@ -108,16 +108,16 @@ public partial class MainWindow : Window
         }
         else if (gameName == "iw4x")
         {
-            workingDir = AppConfigManager.Current.IW4FolderPath;
-            exe = workingDir + "iw4x-launcher.exe";
-            gamePath = RemoveTrailingSlash(AppConfigManager.Current.IW4FolderPath);
+            workingDir = RemoveTrailingSlash(AppConfigManager.Current.IW4FolderPath);
+            exe = workingDir + @"\iw4x-launcher.exe";
+            gamePath = workingDir;
             arguments = $"--path \"{gamePath}\" ";
         }
         else if (gameName == "iw4mp")
         {
-            workingDir = AppConfigManager.Current.IW4FolderPath;
-            exe = workingDir + "iw4x.exe";
-            gamePath = RemoveTrailingSlash(AppConfigManager.Current.IW4FolderPath);
+            workingDir = RemoveTrailingSlash(AppConfigManager.Current.IW4FolderPath);
+            exe = workingDir + @"\iw4x.exe";
+            gamePath = workingDir;
             arguments = $"+sv_securityLevel 0 +name {AppConfigManager.Current.IngameUsername}"; //SecurityLevel 0 allows same machine instance (for splitscreen programs)
         }
         
