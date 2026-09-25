@@ -80,18 +80,11 @@ dotnet publish -c Release -r win-x64 --self-contained true
 robocopy CallofDutyAltLauncher/Native/libvlc CallofDutyAltLauncher/bin/Release/net10.0/win-x64/publish/libvlc /MIR
 ```
 
-## Todo
-- [X] Add Controller support
-- [X] Play background music
-- [X] Set IW5SP image
-- [X] Replace images with higher resolution ones? Meh
-- [X] Stop music when launching Plutonium
-- [X] Option to close Launcher automatically when launching Plutonium
-- [X] Change music (and loop it) when changing game in main menu
-- [X] Check if player started Plutonium at least once
-- [X] Add support for other clients (like IW4x)
-- [ ] Replace that horrible settings icon
-- [ ] Better UI in settings, controller navigation?
+## Credits
+Call of Duty Alt Launcher depends on several open source projects:
+- [SDL3-CS](https://github.com/edwardgushchin/SDL3-CS) that gives us controller support!
+- [LibVLCSharp](https://github.com/videolan/libvlcsharp) for the audio playback
+- [Avalonia](https://github.com/avaloniaui/avalonia) itself for the GUI!
 
 ## Issues
 - Blank screen on some windows randomly while using Gamescope, just moving the pointer or using the controller fixes it, weird
