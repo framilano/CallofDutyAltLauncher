@@ -109,14 +109,15 @@ public partial class MainWindow : Window
         else if (gameName == "iw4x")
         {
             workingDir = RemoveTrailingSlash(AppConfigManager.Current.IW4FolderPath);
-            exe = workingDir + @"\iw4x-launcher.exe";
+            exe = Path.Combine(workingDir!, "iw4x-launcher.exe");
             gamePath = workingDir;
-            arguments = $"--path \"{gamePath}\" ";
+            arguments = AppConfigManager.Current.IW4UseMM!.Value ? "--game-exe \"iw4x (mm).exe\"" : "--game-exe \"iw4x.exe\"";
+            //arguments = $"--path \"{gamePath}\"";
         }
         else if (gameName == "iw4mp")
         {
             workingDir = RemoveTrailingSlash(AppConfigManager.Current.IW4FolderPath);
-            exe = workingDir + @"\iw4x.exe";
+            exe = Path.Combine(workingDir!, "iw4x.exe");
             gamePath = workingDir;
             arguments = $"+sv_securityLevel 0 +name {AppConfigManager.Current.IngameUsername}"; //SecurityLevel 0 allows same machine instance (for splitscreen programs)
         }
@@ -127,7 +128,7 @@ public partial class MainWindow : Window
         
         Log.Information("Command: {Exe} {Arguments}", exe, arguments);
 
-        if (!ValidateButtonInput(gameName, gamePath, exe))
+        if (!ValidateButtonInput(gameName, gamePath, exe, workingDir))
         {
             return;
         }
@@ -155,7 +156,7 @@ public partial class MainWindow : Window
         ShowMessage("Wait please", "Launching...", 10, null);
     }
 
-    private bool ValidateButtonInput(string gameName, string? gamePath, string exe)
+    private bool ValidateButtonInput(string gameName, string? gamePath, string exe, string workingDir)
     {
 
         var exeName = exe.Contains('\\') ? exe.Split('\\').Last() : exe.Split('/').Last();
@@ -178,7 +179,7 @@ public partial class MainWindow : Window
             return false;
         }
 
-        if (!File.Exists(exe))
+        if (!File.Exists(Path.Combine(workingDir, exe)))
         {
             var title = ""; 
             var message = "";

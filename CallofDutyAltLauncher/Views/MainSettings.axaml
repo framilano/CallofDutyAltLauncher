@@ -12,7 +12,7 @@
 
         <Grid 
             ColumnDefinitions="*, *, *"
-            RowDefinitions="*, *, *, *, *, *, *, *, *, *, *, *"
+            RowDefinitions="*, *, *, *, *, *, *, *, *, *, *, *, *"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Margin="20"
@@ -53,8 +53,10 @@
             <TextBlock Padding="10" Text="Modern Warfare 2 game folder" Grid.Row="10" Grid.Column="0"></TextBlock>
             <Button HorizontalAlignment="Center" Padding="10" Grid.Row="10" Grid.Column="1" Tag="IW4FolderButton" Click="SelectGameFolder_OnClick" Content="..."/>
             <TextBox HorizontalAlignment="Right" MaxWidth="500" Padding="10" Name="IW4FolderPath" Text="" Grid.Row="10" Grid.Column="2"></TextBox>
+            <TextBlock Padding="10" Text="Use IW4x with matchmaking?" Grid.Row="11" Grid.Column="0"></TextBlock>
+            <CheckBox Name="IW4UseMM" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2"></CheckBox>
             
-            <Button Margin="20" Name="SaveButton" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3" Click="SaveConfig_OnClick" HorizontalAlignment="Center">Save</Button>
+            <Button Margin="20" Name="SaveButton" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="3" Click="SaveConfig_OnClick" HorizontalAlignment="Center">Save</Button>
         </Grid>
     </ScrollViewer>
 </Window>

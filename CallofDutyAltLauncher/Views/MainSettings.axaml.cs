@@ -18,6 +18,7 @@ public partial class MainSettings : Window
         T6FolderPath.Text = AppConfigManager.Current.T6FolderPath;
         IW5FolderPath.Text = AppConfigManager.Current.IW5FolderPath;
         IW4FolderPath.Text = AppConfigManager.Current.IW4FolderPath;
+        IW4UseMM.IsChecked = AppConfigManager.Current.IW4UseMM;
         CloseAtLaunch.IsChecked = AppConfigManager.Current.CloseAtLaunch;
         DisableBackgroundMusic.IsChecked = AppConfigManager.Current.DisableBackgroundMusic;
         
@@ -141,6 +142,8 @@ public partial class MainSettings : Window
         AppConfigManager.Current.T6FolderPath = T6FolderPath.Text!;
         AppConfigManager.Current.IW5FolderPath = IW5FolderPath.Text!;
         AppConfigManager.Current.IW4FolderPath = IW4FolderPath.Text!;
+        AppConfigManager.Current.IW4UseMM = IW4UseMM.IsChecked!;
+
         AppConfigManager.Current.CloseAtLaunch = CloseAtLaunch.IsChecked!.Value;
         AppConfigManager.Current.DisableBackgroundMusic = DisableBackgroundMusic.IsChecked!.Value;
         AppConfigManager.Save();
